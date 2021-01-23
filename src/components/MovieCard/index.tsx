@@ -1,8 +1,9 @@
 import React from 'react';
 import moment from 'moment';
-import { ImageContainer, Image, Title, Date } from './styles';
+import { ImageContainer, Image, Title, Date, Content } from './styles';
 
 interface MovieCardProps {
+  onClick: () => void;
   title: string;
   releaseDate: string;
   imagePath?: string;
@@ -11,11 +12,12 @@ interface MovieCardProps {
 function MovieCard({
   title,
   imagePath,
-  releaseDate
+  releaseDate,
+  onClick
 }: MovieCardProps): JSX.Element {
   return (
     <div>
-      <ImageContainer>
+      <ImageContainer onClick={onClick}>
         {imagePath && (
           <Image
             alt="poster"
@@ -23,10 +25,10 @@ function MovieCard({
           />
         )}
       </ImageContainer>
-      <div>
+      <Content onClick={onClick}>
         <Title>{title}</Title>
         <Date>{moment(releaseDate).format('MMM DD, YYYY')}</Date>
-      </div>
+      </Content>
     </div>
   );
 }

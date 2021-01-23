@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { States, useFetch } from '../../hooks/useFetch';
 import movieApi from '../../movieApi';
 import MovieCard from '../../components/MovieCard';
@@ -7,6 +8,7 @@ import { GridContainer } from './styles';
 
 function Home(): JSX.Element {
   const [data, state] = useFetch(() => movieApi.discover.popularMovies(), {});
+  const history = useHistory();
 
   if ([States.IDLE, States.LOADING].includes(state)) {
     return <p>Loading</p>;
@@ -19,6 +21,7 @@ function Home(): JSX.Element {
         {data.results?.map((movie) => (
           <MovieCard
             key={movie.id}
+            onClick={() => history.push(`movieDetail/${movie.id}`)}
             title={movie.title}
             imagePath={movie.poster_path}
             releaseDate={movie.release_date}

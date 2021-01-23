@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ImageContainer = styled.div`
+  cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   width: 100%;
@@ -26,4 +27,8 @@ export const Date = styled.p`
   margin: 0;
   padding: 0;
   color: rgba(0, 0, 0, 0.6);
+`;
+
+export const Content = styled.div`
+  cursor: pointer;
 `;

@@ -9,7 +9,7 @@ function Navigation(): JSX.Element {
   return (
     <Router>
       <Switch>
-        <Route path="/movieDetail">
+        <Route path="/movieDetail/:id">
           <MovieDetail />
         </Route>
         <Route path="/">
