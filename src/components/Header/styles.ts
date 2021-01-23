@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   background-color: rgb(0, 0, 0, 0.5);
@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 `;
 
 export const BannerImage = styled.div`
-  background-image: url("https://mauiwatch.com/wp-content/uploads/2019/10/9D9FFEEF-96E9-4C70-88C8-2F8F92FC4CE2.jpeg");
+  background-image: url('https://mauiwatch.com/wp-content/uploads/2019/10/9D9FFEEF-96E9-4C70-88C8-2F8F92FC4CE2.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;

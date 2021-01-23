@@ -26,14 +26,14 @@ export class Base {
   }
 
   /**
-    * Make a get request.
-    * @param { AxiosRequestConfig } [requestParams=this.defaultParams] The params to make the request.
-    * @return { Promise<any> } The data promise.
+   * Make a get request.
+   * @param { AxiosRequestConfig } [requestParams=this.defaultParams] The params to make the request.
+   * @return { Promise<any> } The data promise.
    */
-  list = <T>(requestParams: AxiosRequestConfig) => {
+  list = <T>(requestParams: AxiosRequestConfig): Promise<T> => {
     const { url = this.resourceUrl, params, ...rest } = requestParams;
     return this.axiosInstance.get<T, T>(url, { params, ...rest });
-  }
+  };
 }
 
 export default Base;

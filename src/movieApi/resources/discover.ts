@@ -1,5 +1,5 @@
 // Depedencies
-import Base from "./base";
+import Base from './base';
 
 import { MoviesResults } from '../../interfaces/MovieResults';
 
@@ -17,13 +17,16 @@ export class Discover extends Base {
 
   /**
    * Gets the popular movies in the api.
-   * @returns The 
+   * @returns The
    */
-  popularMovies() {
+  popularMovies(): Promise<MoviesResults> {
     const params = new URLSearchParams();
     params.append('sort_by', 'popularity.desc');
 
-    return this.list<MoviesResults>({ url: `${this.resourceUrl}/movie`, params })
+    return this.list<MoviesResults>({
+      url: `${this.resourceUrl}/movie`,
+      params
+    });
   }
 }
 

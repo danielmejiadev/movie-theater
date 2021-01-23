@@ -15,6 +15,7 @@ export function useFetch<T>(
   const [data, setData] = useState(initialValue);
   const [error, setError] = useState();
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const memoizedCallback = useCallback(() => callback(), []);
   useEffect(() => {
     const fetchData = async () => {

@@ -1,7 +1,7 @@
-import React from "react";
-import { BannerImage, Wrapper, Title, Subtitle } from "./styles";
+import React from 'react';
+import { BannerImage, Wrapper, Title, Subtitle } from './styles';
 
-function Header() {
+function Header(): JSX.Element {
   return (
     <BannerImage>
       <Wrapper>

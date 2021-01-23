@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MovieDetail from '../pages/MovieDetail';
 import Home from '../pages/Home';
 
-function Navigation() {
+function Navigation(): JSX.Element {
   return (
     <Router>
       <Switch>

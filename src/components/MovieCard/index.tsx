@@ -8,11 +8,20 @@ interface MovieCardProps {
   imagePath?: string;
 }
 
-function MovieCard({ title, imagePath, releaseDate }: MovieCardProps) {
+function MovieCard({
+  title,
+  imagePath,
+  releaseDate
+}: MovieCardProps): JSX.Element {
   return (
     <div>
       <ImageContainer>
-        {imagePath && <Image alt="poster" src={`https://image.tmdb.org/t/p/w500/${imagePath}`} />}
+        {imagePath && (
+          <Image
+            alt="poster"
+            src={`https://image.tmdb.org/t/p/w500/${imagePath}`}
+          />
+        )}
       </ImageContainer>
       <div>
         <Title>{title}</Title>

@@ -18,7 +18,7 @@ export class MovieApi {
   constructor(url: string) {
     this.axiosInstance = axios.create({ baseURL: url });
     this.addResponseInterceptor(this.basicResponse);
-    
+
     this.discover = new Discover(this.axiosInstance);
     this.search = new Search(this.axiosInstance);
   }
@@ -28,7 +28,9 @@ export class MovieApi {
    * @param { Function } callback The callback to add.
    * @returns { MovieApi } The client itself.
    */
-  addRequestInterceptor(callback: (request: AxiosRequestConfig) => AxiosRequestConfig) {
+  addRequestInterceptor(
+    callback: (request: AxiosRequestConfig) => AxiosRequestConfig
+  ): MovieApi {
     const { interceptors } = this.axiosInstance;
     interceptors.request.use(callback);
     return this;
@@ -39,7 +41,11 @@ export class MovieApi {
    * @param { Function } callback The callback to add.
    * @returns { MovieApi } The client itself.
    */
-  addResponseInterceptor<T>(callback: (value: AxiosResponse<T>) => AxiosResponse<T> | Promise<AxiosResponse<T>>) {
+  addResponseInterceptor<T>(
+    callback: (
+      value: AxiosResponse<T>
+    ) => AxiosResponse<T> | Promise<AxiosResponse<T>>
+  ): MovieApi {
     const { interceptors } = this.axiosInstance;
     interceptors.response.use(callback);
     return this;
@@ -50,7 +56,8 @@ export class MovieApi {
    * @param { AxiosResponse } response The response.
    * @returns { AxiosResponse.data } The new response parsed.
    */
-  basicResponse = (response: AxiosResponse) => response.data;
+  basicResponse = <T>(response: AxiosResponse<T>): AxiosResponse['data'] =>
+    response.data;
 }
 
 export default MovieApi;

@@ -3,8 +3,8 @@ import './App.css';
 
 import Navigation from './navigation';
 
-function App() {
-  return <Navigation />
+function App(): JSX.Element {
+  return <Navigation />;
 }
 
 export default App;

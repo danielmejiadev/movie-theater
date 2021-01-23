@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ImageContainer = styled.div`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -25,5 +25,5 @@ export const Date = styled.p`
   font-size: 1em;
   margin: 0;
   padding: 0;
-  color: rgba(0,0,0,0.6);
-`
+  color: rgba(0, 0, 0, 0.6);
+`;

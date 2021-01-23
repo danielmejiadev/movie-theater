@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Detail() {
+function Detail(): JSX.Element {
   return <h2>Detail</h2>;
 }
 

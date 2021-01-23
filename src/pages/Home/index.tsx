@@ -1,11 +1,11 @@
-import React from "react";
-import { States, useFetch } from "../../hooks/useFetch";
-import movieApi from "../../movieApi";
-import MovieCard from "../../components/MovieCard";
+import React from 'react';
+import { States, useFetch } from '../../hooks/useFetch';
+import movieApi from '../../movieApi';
+import MovieCard from '../../components/MovieCard';
 import Header from '../../components/Header';
-import { GridContainer } from "./styles";
+import { GridContainer } from './styles';
 
-function Home() {
+function Home(): JSX.Element {
   const [data, state] = useFetch(() => movieApi.discover.popularMovies(), {});
 
   if ([States.IDLE, States.LOADING].includes(state)) {
