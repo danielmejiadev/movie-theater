@@ -15,13 +15,11 @@ export function useFetch<T>(
   const [data, setData] = useState(initialValue);
   const [error, setError] = useState();
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const memoizedCallback = useCallback(() => callback(), []);
   useEffect(() => {
     const fetchData = async () => {
       try {
         setState(States.LOADING);
-        const response = await memoizedCallback();
+        const response = await callback();
         setData(response);
         setState(States.FETCHED);
       } catch (errorCatched) {
@@ -30,7 +28,7 @@ export function useFetch<T>(
       }
     };
     fetchData();
-  }, [memoizedCallback]);
+  }, [callback]);
 
   return [data, state, error];
 }

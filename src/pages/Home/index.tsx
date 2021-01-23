@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import { States, useFetch } from '../../hooks/useFetch';
 import movieApi from '../../movieApi';
@@ -7,7 +7,8 @@ import Header from '../../components/Header';
 import { GridContainer } from './styles';
 
 function Home(): JSX.Element {
-  const [data, state] = useFetch(() => movieApi.discover.popularMovies(), {});
+  const fetchPopularMovies =useCallback(() => movieApi.discover.popularMovies(), []);
+  const [data, state] = useFetch(fetchPopularMovies, {});
   const history = useHistory();
 
   if ([States.IDLE, States.LOADING].includes(state)) {

@@ -1,9 +1,8 @@
 // Depedencies
 import axios, { AxiosInstance, AxiosResponse, AxiosRequestConfig } from 'axios';
-
-// Resources
 import Discover from './resources/discover';
 import Search from './resources/search';
+import Movies from './resources/movies';
 
 /**
  * Movie service for API connection.
@@ -14,6 +13,7 @@ export class MovieApi {
   axiosInstance: AxiosInstance;
   discover: Discover;
   search: Search;
+  movies: Movies;
 
   constructor(url: string) {
     this.axiosInstance = axios.create({ baseURL: url });
@@ -21,6 +21,7 @@ export class MovieApi {
 
     this.discover = new Discover(this.axiosInstance);
     this.search = new Search(this.axiosInstance);
+    this.movies = new Movies(this.axiosInstance);
   }
 
   /**
