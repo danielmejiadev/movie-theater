@@ -1,3 +1,5 @@
+import { ProductionCompany } from './ProductionCompany';
+
 export interface Movie {
   adult: boolean;
   backdrop_path: string;
@@ -13,4 +15,7 @@ export interface Movie {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  homepage?: string;
+  imdb_id?: string;
+  production_companies: ProductionCompany[]
 }
