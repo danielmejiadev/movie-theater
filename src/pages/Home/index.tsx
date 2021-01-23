@@ -2,6 +2,7 @@ import React from "react";
 import { States, useFetch } from "../../hooks/useFetch";
 import movieApi from "../../movieApi";
 import MovieCard from "../../components/MovieCard";
+import Header from '../../components/Header';
 import { GridContainer } from "./styles";
 
 function Home() {
@@ -12,16 +13,19 @@ function Home() {
   }
 
   return (
-    <GridContainer>
-      {data.results?.map((movie) => (
-        <MovieCard
-          key={movie.id}
-          title={movie.title}
-          imagePath={movie.poster_path}
-          releaseDate={movie.release_date}
-        />
-      ))}
-    </GridContainer>
+    <div>
+      <Header />
+      <GridContainer>
+        {data.results?.map((movie) => (
+          <MovieCard
+            key={movie.id}
+            title={movie.title}
+            imagePath={movie.poster_path}
+            releaseDate={movie.release_date}
+          />
+        ))}
+      </GridContainer>
+    </div>
   );
 }
 
