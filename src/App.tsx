@@ -3,6 +3,8 @@ import './App.css';
 
 import Navigation from './navigation';
 
-export default function App() {
+function App() {
   return <Navigation />
 }
+
+export default App;

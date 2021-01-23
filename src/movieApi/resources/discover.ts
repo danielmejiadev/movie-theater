@@ -1,6 +1,8 @@
 // Depedencies
 import Base from "./base";
 
+import { MoviesResults } from '../../interfaces/MovieResults';
+
 /**
  * Discover resource.
  * @author Daniel Mejia
@@ -21,7 +23,7 @@ export class Discover extends Base {
     const params = new URLSearchParams();
     params.append('sort_by', 'popularity.desc');
 
-    return this.list({ url: `${this.resourceUrl}/movie`, params })
+    return this.list<MoviesResults>({ url: `${this.resourceUrl}/movie`, params })
   }
 }
 

@@ -39,7 +39,7 @@ export class MovieApi {
    * @param { Function } callback The callback to add.
    * @returns { MovieApi } The client itself.
    */
-  addResponseInterceptor(callback: (value: AxiosResponse<any>) => AxiosResponse<any> | Promise<AxiosResponse<any>>) {
+  addResponseInterceptor<T>(callback: (value: AxiosResponse<T>) => AxiosResponse<T> | Promise<AxiosResponse<T>>) {
     const { interceptors } = this.axiosInstance;
     interceptors.response.use(callback);
     return this;

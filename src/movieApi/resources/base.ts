@@ -1,4 +1,4 @@
-import { AxiosInstance, AxiosRequestConfig } from 'axios';
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 /**
  * Base service for http request.
@@ -30,9 +30,9 @@ export class Base {
     * @param { AxiosRequestConfig } [requestParams=this.defaultParams] The params to make the request.
     * @return { Promise<any> } The data promise.
    */
-  list = (requestParams: AxiosRequestConfig) => {
+  list = <T>(requestParams: AxiosRequestConfig) => {
     const { url = this.resourceUrl, params, ...rest } = requestParams;
-    return this.axiosInstance.get(url, { params, ...rest });
+    return this.axiosInstance.get<T, T>(url, { params, ...rest });
   }
 }
 
