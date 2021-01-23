@@ -1,6 +1,5 @@
 // Depedencies
 import Base from './base';
-
 import { MoviesResults } from '../../interfaces/MovieResults';
 
 /**
@@ -17,7 +16,7 @@ export class Discover extends Base {
 
   /**
    * Gets the popular movies in the api.
-   * @returns The
+   * @returns {Promise<MoviesResults>} The popular movies.
    */
   popularMovies(): Promise<MoviesResults> {
     const params = new URLSearchParams();
