@@ -1,18 +1,21 @@
 import React from 'react';
 import moment from 'moment';
-import { ImageContainer, Image, Title, Date, Content } from './styles';
+import StarRating from '../Rating';
+import { ImageContainer, Image, Title, Date, Content, Rating } from './styles';
 
 interface MovieCardProps {
   onClick: () => void;
   title: string;
   releaseDate: string;
   imagePath?: string;
+  voteAverage: number;
 }
 
 function MovieCard({
   title,
   imagePath,
   releaseDate,
+  voteAverage,
   onClick
 }: MovieCardProps): JSX.Element {
   return (
@@ -26,6 +29,10 @@ function MovieCard({
         )}
       </ImageContainer>
       <Content onClick={onClick}>
+        <Rating>
+          <StarRating starts={1} defaultValue={1} size="small" />
+          <p>{voteAverage}</p>
+        </Rating>
         <Title>{title}</Title>
         <Date>{moment(releaseDate).format('MMM DD, YYYY')}</Date>
       </Content>

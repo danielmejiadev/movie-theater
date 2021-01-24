@@ -29,6 +29,7 @@ function Home(): JSX.Element {
             title={movie.title}
             imagePath={movie.poster_path}
             releaseDate={movie.release_date}
+            voteAverage={movie.vote_average}
           />
         ))}
       </GridContainer>

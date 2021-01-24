@@ -16,8 +16,15 @@ export const Image = styled.img`
   height: 100%;
 `;
 
+export const Content = styled.div`
+  cursor: pointer;
+  position: relative;
+  margin-left: 5px;
+`;
+
 export const Title = styled.h2`
   font-size: 1em;
+  margin-top: 20px;
   margin-bottom: 0px;
   font-weight: 700;
 `;
@@ -29,6 +36,23 @@ export const Date = styled.p`
   color: rgba(0, 0, 0, 0.6);
 `;
 
-export const Content = styled.div`
-  cursor: pointer;
+export const Rating = styled.div`
+  position: absolute;
+  top: -45px;
+  color: white;
+  padding: 6px;
+  border-radius: 40px;
+  background-color: rgb(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+
+  p {
+    margin: 0px;
+    margin-top: -5px;
+    font-size: 0.8em;
+  }
 `;
