@@ -17,5 +17,10 @@ export interface Movie {
   vote_count: number;
   homepage?: string;
   imdb_id?: string;
-  production_companies: ProductionCompany[]
+  production_companies: ProductionCompany[];
+  tagline: string;
+  genres: { id: number; name: string }[];
+  status: string;
+  revenue: number;
+  budget: number;
 }
