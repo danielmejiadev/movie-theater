@@ -26,6 +26,11 @@ function MovieDetail(): JSX.Element {
     id
   ]);
   const [movie, state] = useFetch(getMovieDetail, {} as Movie);
+
+  if ([States.IDLE, States.LOADING].includes(state)) {
+    return <p>Loading</p>;
+  }
+
   const {
     backdrop_path,
     poster_path,
@@ -42,10 +47,6 @@ function MovieDetail(): JSX.Element {
   const releaseYear = moment(release_date).format('YYYY');
   const release = moment(release_date).format('MM/DD/YYYY');
   const tags = genres.map(({ name }) => name).join(', ');
-
-  if ([States.IDLE, States.LOADING].includes(state)) {
-    return <p>Loading</p>;
-  }
 
   return (
     <GridContainer image={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}>
