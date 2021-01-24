@@ -1,28 +1,21 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { States, useFetch } from '../../hooks/useFetch';
-import movieApi from '../../movieApi';
+import { States } from '../../hooks/useFetch';
 import MovieCard from '../../components/MovieCard';
 import Header from '../../components/Header';
 import { GridContainer } from './styles';
+import { useMovie } from '../../hooks/useMovie';
 
 function Home(): JSX.Element {
-  const fetchPopularMovies = useCallback(
-    () => movieApi.discover.popularMovies(),
-    []
-  );
-  const [data, state] = useFetch(fetchPopularMovies, {});
+  const { movieResults, state } = useMovie();
   const history = useHistory();
-
-  if ([States.IDLE, States.LOADING].includes(state)) {
-    return <p>Loading</p>;
-  }
 
   return (
     <div>
       <Header />
+      {[States.IDLE, States.LOADING].includes(state) && <p>Loading</p>}
       <GridContainer>
-        {data.results?.map((movie) => (
+        {movieResults.results?.map((movie) => (
           <MovieCard
             key={movie.id}
             onClick={() => history.push(`movieDetail/${movie.id}`)}
