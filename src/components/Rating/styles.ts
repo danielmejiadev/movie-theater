@@ -6,7 +6,10 @@ export const sizes = {
   large: 2
 };
 
-export const Start = styled.label<{ isSelected: boolean; size: keyof typeof sizes }>`
+export const Start = styled.label<{
+  isSelected: boolean;
+  size: keyof typeof sizes;
+}>`
   display: inline-block;
   padding: 4px;
   vertical-align: middle;

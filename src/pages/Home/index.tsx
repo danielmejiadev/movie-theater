@@ -7,7 +7,10 @@ import Header from '../../components/Header';
 import { GridContainer } from './styles';
 
 function Home(): JSX.Element {
-  const fetchPopularMovies =useCallback(() => movieApi.discover.popularMovies(), []);
+  const fetchPopularMovies = useCallback(
+    () => movieApi.discover.popularMovies(),
+    []
+  );
   const [data, state] = useFetch(fetchPopularMovies, {});
   const history = useHistory();
 
