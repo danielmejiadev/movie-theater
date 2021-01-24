@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
+import { useMovie } from '../../hooks/useMovie';
 import { Form } from './styles';
 
 interface SearchIconProps {
@@ -25,10 +26,23 @@ function SearchIcon({ className }: SearchIconProps): JSX.Element {
 }
 
 function Search(): JSX.Element {
+  const input = useRef<HTMLInputElement>(null);
+  const { setQuery } = useMovie();
+  const filterMovies = useCallback(
+    (event: React.FormEvent) => {
+      event.preventDefault();
+      const { current } = input;
+      setQuery(current?.value);
+    },
+    [setQuery]
+  );
+
   return (
-    <Form>
-      <input placeholder="Search for a movie" />
-      <SearchIcon className="search" />
+    <Form onSubmit={filterMovies}>
+      <input placeholder="Search for a movie" ref={input} />
+      <button type="submit">
+        <SearchIcon className="search" />
+      </button>
     </Form>
   );
 }

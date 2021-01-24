@@ -32,15 +32,25 @@ export const Form = styled.form`
       border: 1px solid transparent;
       border-bottom: 1px solid white;
       border-radius: 0;
-      background-position: 100% center;
     }
   }
 
   .search {
     width: 22px;
     height: 22px;
-    margin-left: -32px;
     cursor: pointer;
     color: white;
+  }
+
+  button {
+    z-index: 1;
+    margin-left: -32px;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
   }
 `;
