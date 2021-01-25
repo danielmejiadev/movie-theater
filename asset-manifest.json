@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/movie-theater/static/css/main.081ddde9.chunk.css",
+    "main.js": "/movie-theater/static/js/main.73a34fc4.chunk.js",
+    "main.js.map": "/movie-theater/static/js/main.73a34fc4.chunk.js.map",
+    "runtime-main.js": "/movie-theater/static/js/runtime-main.3719c754.js",
+    "runtime-main.js.map": "/movie-theater/static/js/runtime-main.3719c754.js.map",
+    "static/js/2.5f55643e.chunk.js": "/movie-theater/static/js/2.5f55643e.chunk.js",
+    "static/js/2.5f55643e.chunk.js.map": "/movie-theater/static/js/2.5f55643e.chunk.js.map",
+    "static/js/3.18fc6959.chunk.js": "/movie-theater/static/js/3.18fc6959.chunk.js",
+    "static/js/3.18fc6959.chunk.js.map": "/movie-theater/static/js/3.18fc6959.chunk.js.map",
+    "index.html": "/movie-theater/index.html",
+    "static/css/main.081ddde9.chunk.css.map": "/movie-theater/static/css/main.081ddde9.chunk.css.map",
+    "static/js/2.5f55643e.chunk.js.LICENSE.txt": "/movie-theater/static/js/2.5f55643e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3719c754.js",
+    "static/js/2.5f55643e.chunk.js",
+    "static/css/main.081ddde9.chunk.css",
+    "static/js/main.73a34fc4.chunk.js"
+  ]
+}
