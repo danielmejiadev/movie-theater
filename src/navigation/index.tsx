@@ -6,8 +6,10 @@ import MovieDetail from '../pages/MovieDetail';
 import Home from '../pages/Home';
 
 function Navigation(): JSX.Element {
+  const { PUBLIC_URL } = process.env;
+
   return (
-    <Router>
+    <Router basename={PUBLIC_URL}>
       <Switch>
         <Route path="/movieDetail/:id">
           <MovieDetail />
