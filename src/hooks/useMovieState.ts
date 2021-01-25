@@ -1,12 +1,16 @@
 // Dependencies
 import { useCallback, useState } from 'react';
 import { MovieContext } from '../context/movie.context';
+import { Rating } from '../helpers/ratings-ranges';
 import { useFetch } from '../hooks/useFetch';
 import movieApi from '../movieApi';
 
 export function useMovieState(): MovieContext {
   const [query, setQuery] = useState<undefined | string>();
+  const [rating, setRating] = useState<undefined | Rating>();
+
   const fetchResults = useCallback(() => {
+    setRating(undefined);
     if (query) {
       return movieApi.search.filterMovies(query);
     }
@@ -20,6 +24,9 @@ export function useMovieState(): MovieContext {
     movieResults,
     state,
     error,
-    setQuery
+    query,
+    setQuery,
+    setRating,
+    rating
   };
 }
