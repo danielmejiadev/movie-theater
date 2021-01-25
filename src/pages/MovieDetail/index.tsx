@@ -61,7 +61,7 @@ function MovieDetail(): JSX.Element {
           <Title>{`${original_title} (${releaseYear})`}</Title>
           <Tags>{`${release} ${tags}`}</Tags>
           <Rating>
-            <StarRating starts={1} defaultValue={1} size="large" />
+            <StarRating starts={1} rating={1} size="large" />
             <span>{vote_average}</span>
           </Rating>
           <Tagline>{tagline}</Tagline>

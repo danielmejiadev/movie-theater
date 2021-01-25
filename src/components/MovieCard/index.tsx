@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import StarRating from '../Rating';
-import { ImageContainer, Image, Title, Date, Content, Rating } from './styles';
+import { ImageContainer, Title, Date, Content, Rating } from './styles';
 
 interface MovieCardProps {
   onClick: () => void;
@@ -22,7 +22,7 @@ function MovieCard({
     <div>
       <ImageContainer onClick={onClick}>
         {imagePath && (
-          <Image
+          <img
             alt="poster"
             src={`https://image.tmdb.org/t/p/w500/${imagePath}`}
           />
@@ -30,7 +30,7 @@ function MovieCard({
       </ImageContainer>
       <Content onClick={onClick}>
         <Rating>
-          <StarRating starts={1} defaultValue={1} size="small" />
+          <StarRating starts={1} rating={1} size="small" />
           <p>{voteAverage}</p>
         </Rating>
         <Title>{title}</Title>

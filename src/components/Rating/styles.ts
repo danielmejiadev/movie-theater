@@ -11,7 +11,7 @@ export const Start = styled.label<{
   size: keyof typeof sizes;
 }>`
   display: inline-block;
-  padding: 4px;
+  padding: 4px 4px 4px 0;
   vertical-align: middle;
   line-height: 1;
   font-size: ${({ size }) => sizes[size]}em;

@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Rating } from '../../helpers/ratings-ranges';
 import { Start, sizes } from './styles';
 
 interface StarRatingProps {
   starts?: number;
-  defaultValue?: number;
+  rating?: number;
   size?: keyof typeof sizes;
+  setRating?(rating: Rating): void;
 }
 
 function StarRating({
   starts = 5,
-  defaultValue = 0,
-  size = 'normal'
+  rating = 0,
+  size = 'normal',
+  setRating
 }: StarRatingProps): JSX.Element {
-  const [rating, setRating] = useState(defaultValue);
-
   return (
     <>
       {[...Array(starts)].map((_, index) => (
@@ -21,7 +22,7 @@ function StarRating({
           key={index}
           size={size}
           isSelected={rating >= index + 1}
-          onClick={() => setRating(index + 1)}
+          onClick={() => setRating?.((index + 1) as Rating)}
         >
           ★
         </Start>

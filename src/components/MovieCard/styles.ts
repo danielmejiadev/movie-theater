@@ -9,11 +9,11 @@ export const ImageContainer = styled.div`
   height: 250px;
   background: #dbdbdb;
   overflow: hidden;
-`;
 
-export const Image = styled.img`
-  width: 100%;
-  height: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const Content = styled.div`
