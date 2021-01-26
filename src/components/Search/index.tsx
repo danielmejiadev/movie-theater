@@ -26,22 +26,22 @@ function SearchIcon({ className }: SearchIconProps): JSX.Element {
 }
 
 function Search(): JSX.Element {
-  const input = useRef<HTMLInputElement>(null);
-  const { setQuery } = useMovie();
-  const filterMovies = useCallback(
-    (event: React.FormEvent) => {
-      event.preventDefault();
-      const { current } = input;
-      setQuery(current?.value);
-    },
-    [setQuery]
-  );
+  const { input, setQuery } = useMovie();
+  const { value, onChange } = input;
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    setQuery(value);
+  };
 
   return (
-    <Form onSubmit={filterMovies}>
-      <input placeholder="Search for a movie" ref={input} />
+    <Form onSubmit={handleSubmit}>
+      <input
+        placeholder="Search for a movie"
+        value={value}
+        onChange={onChange}
+      />
       <button type="submit">
-        <SearchIcon className="search" />
+        <SearchIcon />
       </button>
     </Form>
   );

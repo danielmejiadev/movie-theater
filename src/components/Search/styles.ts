@@ -35,7 +35,7 @@ export const Form = styled.form`
     }
   }
 
-  .search {
+  svg {
     width: 22px;
     height: 22px;
     cursor: pointer;
