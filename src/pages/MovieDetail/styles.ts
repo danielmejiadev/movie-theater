@@ -15,7 +15,10 @@ export const Overlay = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+
+  & > div {
+    margin: 20px;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -31,7 +34,6 @@ export const ImageContainer = styled.div`
 
 export const Content = styled.div`
   flex: 1;
-  padding-left: 40px;
 `;
 
 export const Title = styled.h2`
@@ -65,7 +67,7 @@ export const Tagline = styled.h3`
   opacity: 0.7;
 `;
 
-export const OverviewTitle = styled.h3`
+export const OverviewTitle = styled.h2`
   margin: 20px 0 8px 0;
 `;
 

@@ -33,6 +33,7 @@ function MovieDetail(): JSX.Element {
     release_date,
     tagline,
     overview,
+    title,
     original_title,
     genres,
     status,
@@ -55,7 +56,7 @@ function MovieDetail(): JSX.Element {
             />
           </ImageContainer>
           <Content>
-            <Title>{`${original_title} (${releaseYear})`}</Title>
+            <Title>{`${title} (${releaseYear})`}</Title>
             <Tags>{`${release} ${tags}`}</Tags>
             <Rating>
               <StarRating starts={1} rating={1} size="large" />
@@ -64,6 +65,10 @@ function MovieDetail(): JSX.Element {
             <Tagline>{tagline}</Tagline>
             <OverviewTitle>Overview</OverviewTitle>
             <Overview>{overview}</Overview>
+            <Tag>
+              <strong>Original Title</strong>
+              {original_title}
+            </Tag>
             <Tag>
               <strong>Status</strong>
               {status}
