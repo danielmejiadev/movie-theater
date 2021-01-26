@@ -1,11 +1,12 @@
 import React, { useCallback } from 'react';
 import moment from 'moment';
 import { useParams } from 'react-router-dom';
-import { States, useFetch } from '../../hooks/useFetch';
+import { useFetch } from '../../hooks/useFetch';
 import movieApi from '../../movieApi';
 import { Movie } from '../../interfaces/Movie';
 import { currencyFormatter } from '../../helpers/currency-helper';
 import StarRating from '../../components/Rating';
+import Suspense from '../../components/Suspense';
 import {
   GridContainer,
   Overlay,
@@ -26,11 +27,6 @@ function MovieDetail(): JSX.Element {
     id
   ]);
   const [movie, state] = useFetch(getMovieDetail, {} as Movie);
-
-  if ([States.IDLE, States.LOADING].includes(state)) {
-    return <p>Loading</p>;
-  }
-
   const {
     backdrop_path,
     poster_path,
@@ -46,42 +42,44 @@ function MovieDetail(): JSX.Element {
   } = movie;
   const releaseYear = moment(release_date).format('YYYY');
   const release = moment(release_date).format('MM/DD/YYYY');
-  const tags = genres.map(({ name }) => name).join(', ');
+  const tags = genres?.map(({ name }) => name).join(', ');
 
   return (
-    <GridContainer image={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}>
-      <Overlay>
-        <ImageContainer>
-          <img
-            alt="poster"
-            src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
-          />
-        </ImageContainer>
-        <Content>
-          <Title>{`${original_title} (${releaseYear})`}</Title>
-          <Tags>{`${release} ${tags}`}</Tags>
-          <Rating>
-            <StarRating starts={1} rating={1} size="large" />
-            <span>{vote_average}</span>
-          </Rating>
-          <Tagline>{tagline}</Tagline>
-          <OverviewTitle>Overview</OverviewTitle>
-          <Overview>{overview}</Overview>
-          <Tag>
-            <strong>Status</strong>
-            {status}
-          </Tag>
-          <Tag>
-            <strong>Budget</strong>
-            {budget ? currencyFormatter.format(budget) : '-'}
-          </Tag>
-          <Tag>
-            <strong>Revenue</strong>
-            {revenue ? currencyFormatter.format(revenue) : '-'}
-          </Tag>
-        </Content>
-      </Overlay>
-    </GridContainer>
+    <Suspense state={state}>
+      <GridContainer image={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}>
+        <Overlay>
+          <ImageContainer>
+            <img
+              alt="poster"
+              src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
+            />
+          </ImageContainer>
+          <Content>
+            <Title>{`${original_title} (${releaseYear})`}</Title>
+            <Tags>{`${release} ${tags}`}</Tags>
+            <Rating>
+              <StarRating starts={1} rating={1} size="large" />
+              <span>{vote_average}</span>
+            </Rating>
+            <Tagline>{tagline}</Tagline>
+            <OverviewTitle>Overview</OverviewTitle>
+            <Overview>{overview}</Overview>
+            <Tag>
+              <strong>Status</strong>
+              {status}
+            </Tag>
+            <Tag>
+              <strong>Budget</strong>
+              {budget ? currencyFormatter.format(budget) : '-'}
+            </Tag>
+            <Tag>
+              <strong>Revenue</strong>
+              {revenue ? currencyFormatter.format(revenue) : '-'}
+            </Tag>
+          </Content>
+        </Overlay>
+      </GridContainer>
+    </Suspense>
   );
 }
 

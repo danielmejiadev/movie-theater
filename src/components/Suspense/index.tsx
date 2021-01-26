@@ -13,7 +13,7 @@ function Suspense({ state, children }: SuspenseProps): JSX.Element {
   }
 
   if (States.ERROR === state) {
-    return <h2>Something went wrong. Please try later</h2>;
+    return <h2 className="center">Something went wrong...</h2>;
   }
 
   return <>{children}</>;

@@ -22,6 +22,8 @@ const Loader = styled.div`
   height: 50px;
   border-radius: 50%;
   margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `;
 
 export default Loader;

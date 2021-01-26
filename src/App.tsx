@@ -7,7 +7,7 @@ import MovieProvider from './providers/MovieProvider';
 function App(): JSX.Element {
   return (
     <MovieProvider>
-      <Navigation />;
+      <Navigation />
     </MovieProvider>
   );
 }
