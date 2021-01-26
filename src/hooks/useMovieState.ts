@@ -1,11 +1,13 @@
 // Dependencies
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { MovieContext } from '../context/movie.context';
 import { Rating } from '../helpers/ratings-ranges';
 import { useFetch } from '../hooks/useFetch';
+import { useField } from './useField';
 import movieApi from '../movieApi';
 
 export function useMovieState(): MovieContext {
+  const input = useField();
   const [query, setQuery] = useState<undefined | string>();
   const [rating, setRating] = useState<undefined | Rating>();
 
@@ -24,6 +26,7 @@ export function useMovieState(): MovieContext {
     movieResults,
     state,
     error,
+    input,
     query,
     setQuery,
     setRating,
