@@ -7,10 +7,10 @@ export interface Field {
   setValue: Dispatch<SetStateAction<string>>;
 }
 
-export function useField(initial?: string): Field {
-  const [value, setValue] = useState<string>(initial || '');
+export function useField(initial = ''): Field {
+  const [value, setValue] = useState<string>(initial);
   const onChange = useCallback(({ target }) => setValue(target?.value), []);
-  const reset = useCallback(() => setValue(initial as string), [initial]);
+  const reset = useCallback(() => setValue(initial), [initial]);
 
   return { value, onChange, reset, setValue };
 }

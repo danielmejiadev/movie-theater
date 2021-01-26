@@ -8,11 +8,10 @@ export const Form = styled.form`
 
   input {
     width: 50%;
-    padding: 12px 24px;
+    padding: 12px 36px;
     background-color: transparent;
     transition: transform 250ms ease-in-out;
     font-size: 0.9em;
-    line-height: 18px;
     color: white;
     border-radius: 50px;
     border: 1px solid white;
@@ -22,12 +21,11 @@ export const Form = styled.form`
 
     &::placeholder {
       color: white;
-      letter-spacing: 1.5px;
     }
 
     &:hover,
     &:focus {
-      padding: 12px 0;
+      padding: 12px 38px;
       outline: 0;
       border: 1px solid transparent;
       border-bottom: 1px solid white;
@@ -36,15 +34,21 @@ export const Form = styled.form`
   }
 
   svg {
-    width: 22px;
-    height: 22px;
+    margin-top: 3px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     color: white;
   }
 
+  .clear {
+    z-index: 1;
+    margin-left: -30px;
+  }
+
   button {
     z-index: 1;
-    margin-left: -32px;
+    margin-right: -30px;
     background: none;
     color: inherit;
     border: none;
