@@ -5,7 +5,7 @@ import { useFetch } from '../../hooks/useFetch';
 import movieApi from '../../movieApi';
 import { Movie } from '../../interfaces/Movie';
 import { currencyFormatter } from '../../helpers/currency-helper';
-import StarRating from '../../components/Rating';
+import StarRating from '../../components/StartRating';
 import Suspense from '../../components/Suspense';
 import {
   GridContainer,

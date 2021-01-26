@@ -3,7 +3,7 @@ import { Filter } from './styles';
 import { useMovie } from '../../hooks/useMovie';
 import { Movie } from '../../interfaces/Movie';
 import MovieList from '../MovieList';
-import Rating from '../Rating';
+import StartRating from '../StartRating';
 import { ranges } from '../../helpers/ratings-ranges';
 
 interface SearchResultsProps {
@@ -28,7 +28,7 @@ function SearchResults({ onMovieClicked }: SearchResultsProps): JSX.Element {
         <Filter>
           <h2>{`Search results for: ${query}`}</h2>
           <h3>Rating:</h3>
-          <Rating rating={rating} setRating={setRating} />
+          <StartRating rating={rating} setRating={setRating} />
         </Filter>
       }
       movies={filteredMovies}

@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import StarRating from '../Rating';
+import StarRating from '../StartRating';
 import { ImageContainer, Title, Date, Content, Rating } from './styles';
 
 interface MovieCardProps {
