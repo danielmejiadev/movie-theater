@@ -1,12 +1,11 @@
 import React from 'react';
-import { Rating } from '../../helpers/ratings-ranges';
 import { Start, sizes } from './styles';
 
 interface StarRatingProps {
   starts?: number;
   rating?: number;
   size?: keyof typeof sizes;
-  setRating?(rating: Rating): void;
+  setRating?(rating?: number): void;
 }
 
 function StarRating({
@@ -17,16 +16,22 @@ function StarRating({
 }: StarRatingProps): JSX.Element {
   return (
     <>
-      {[...Array(starts)].map((_, index) => (
-        <Start
-          key={index}
-          size={size}
-          isSelected={rating >= index + 1}
-          onClick={() => setRating?.((index + 1) as Rating)}
-        >
-          ★
-        </Start>
-      ))}
+      {[...Array(starts)].map((_, index) => {
+        const currentRating = index + 1;
+        const isSelected = rating >= currentRating;
+        const sameRating = rating === currentRating;
+
+        return (
+          <Start
+            key={index}
+            size={size}
+            isSelected={isSelected}
+            onClick={() => setRating?.(sameRating ? undefined : currentRating)}
+          >
+            ★
+          </Start>
+        );
+      })}
     </>
   );
 }
